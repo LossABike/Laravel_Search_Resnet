@@ -159,10 +159,11 @@
                         </div>
                     </li>
                     <li class="btn-group nav-item">
-                        <a class="nav-link" data-toggle="dropdown" aria-expanded="false">
+                        {{-- <a class="nav-link" data-toggle="dropdown" aria-expanded="false">
                             <span class="badge badge-pill badge-danger ml-0 mr-2">4</span> Settings
                             <i class="fa fa-angle-down ml-2 opacity-5"></i>
-                        </a>
+                        </a> --}}
+                        <button type="button" tabindex="0" class="dropdown-item bg-warning" id="migrate_database">Migration Database</button>
                         <div tabindex="-1" role="menu" aria-hidden="true" class="rm-pointers dropdown-menu">
                             <div class="dropdown-menu-header">
                                 <div class="dropdown-menu-header-inner bg-secondary">
@@ -2670,6 +2671,24 @@
 
 <script type="text/javascript" src="./dashboard/assets/scripts/main.js"></script>
 <script type="text/javascript" src="./dashboard/assets/scripts/my_script.js"></script>
+<script>
+    document.getElementById("migrate_database").onclick = function(e) {
+
+       // e.preventDefault(); // Prevent the form from being submitted in the traditional way
+        
+        $.ajax({
+            type: "GET",
+            url: 'http://127.0.0.1:5000/migrate',
+            success: function(response) {
+               alert("Migration Success")
+            },
+            error: function(response) {
+            
+                alert('Migration Fail');
+            }
+            });
+    };
+</script>
 </body>
 
 </html>

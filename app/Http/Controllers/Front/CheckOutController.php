@@ -6,6 +6,7 @@ use App\Utilities\VNPay;
 use App\Http\Controllers\Controller;
 use App\Services\Order\OrderServiceInterface;
 use App\Services\OrderDetail\OrderDetailServiceInterface;
+use Exception;
 use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
@@ -110,12 +111,16 @@ class CheckOutController extends Controller
 
     private function sendEmail($order,$total,$subtotal){
            $email_to = $order->email;
-
-           Mail::send('front.checkout.email',compact('order','total','subtotal'),
-           function ($message) use ($email_to) {
+            try{
+               Mail::send('front.checkout.email',compact('order','total','subtotal'),
+               function ($message) use ($email_to) {
                $message->from('ngoduchieuxxx@gmail.com','AzDigital');
                $message->to($email_to,$email_to);
                $message->subject('Order Notification');
            });
+           }catch(Exception $error){
+                return redirect ('/');
+           }
+           
     }
 }

@@ -93,24 +93,25 @@
                             <div class="input-group">
                                 <input type="text" name="search" value="{{request('search')}}" placeholder="What do you need?">
                                 <button type="submit"><i class="ti-search"></i></button>
-
-                                
-
                             </div>
                         </div>
-                                
                     </form>
-                   <div class="btn_search search_by_image" style="margin: 0 32px -6px 0">
-                        <form method="post" id="searchByImageForm" enctype="multipart/form-data">
-                            <label for="fileToUpload" style="cursor: pointer;">
-                                <i class="fa fa-camera" aria-hidden="true" style="font-size: 20px; color: black"></i>
-                            </label>
-                            <input style="display:none;" id="fileToUpload" type="file" name="fileToUpload">
-                        </form>
-                    </div>
+                    
                 </div>
+
                 <div class="col-lg-3 text-right col-md-3">
                     <ul class="nav-right">
+                        <li>
+                            <div class="btn_search search_by_image" style="margin: 0 32px -6px 0"> 
+                                <form method="post" id="searchByImageForm" enctype="multipart/form-data">
+                                 
+                                    <label for="fileToUpload" style="cursor: pointer;">
+                                        <i class="fa fa-camera" aria-hidden="true" style="font-size: 20px; color: black"></i>
+                                    </label>
+                                    <input style="display:none;" id="fileToUpload" type="file" name="fileToUpload">
+                                </form>
+                            </div>
+                        </li>
                         <li class="heart-icon">
                             <a href="#">
                                 <i class="icon_heart_alt"></i>
