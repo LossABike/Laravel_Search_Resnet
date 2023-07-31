@@ -70,6 +70,7 @@ class CheckOutController extends Controller
                 'vnp_Amount' => Cart::total(0,'','')*23500, //rate usd
             ]);
             //Redirect to URL VNPAY
+            //dd($data_url);
             return redirect()->to($data_url);
 
 
@@ -89,7 +90,7 @@ class CheckOutController extends Controller
             if($vnp_ResponseCode== 00){
                 Cart::destroy();
                 return redirect('checkout/result')
-                    ->with('notification','Your Order Success! You will pay on delivery. Please check your email. Thank You <3');
+                    ->with('notification','Your Order has paid Success! You will pay on delivery. Please check your email. Thank You <3');
 
             } else {
                 //if fail

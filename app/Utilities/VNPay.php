@@ -12,10 +12,10 @@ class VNPay
      * config.php
      *
      */
-    static $vnp_TmnCode = "OCVB6FBZ"; //Mã website tại VNPAY
-    static $vnp_HashSecret = "XPONQFIYXQIOGCUTGKWFGQFDRCNQYXPG"; //Chuỗi bí mật
+    static $vnp_TmnCode = "L62X5Q0S"; //Mã website tại VNPAY
+    static $vnp_HashSecret = "UFOWQLAXOVDRTLYRDVFKLCLCVVYTXNTG"; //Chuỗi bí mật
     static $vnp_Url = "https://sandbox.vnpayment.vn/paymentv2/vpcpay.html";
-    static $vnp_Returnurl = "https://localhost/checkout/vnPayCheck"; //Chú ý cấu hình env('APP_URL') khi sử dụng biến này.
+    static $vnp_Returnurl = "/checkout/vnPayCheck"; //Chú ý cấu hình env('APP_URL') khi sử dụng biến này.
 
     /**
      * vnpay_create_payment.php
@@ -41,20 +41,21 @@ class VNPay
          */
         //require_once("./config.php");
 
-        $vnp_TxnRef = $data['vnp_TxnRef']; //Mã đơn hàng. Trong thực tế Merchant cần insert đơn hàng vào DB và gửi mã này sang VNPAY
+        $vnp_TxnRef = strval($data['vnp_TxnRef']); //Mã đơn hàng. Trong thực tế Merchant cần insert đơn hàng vào DB và gửi mã này sang VNPAY
         $vnp_OrderInfo = $data['vnp_OrderInfo'];
-        $vnp_OrderType = 100000; // Loại hàng hóa: Thực Phẩm - Tiêu Dùng (Xem thêm mã tại: https://sandbox.vnpayment.vn/apis/docs/loai-hang-hoa)
+        $vnp_OrderType = 'billpayment'; // Loại hàng hóa: Thực Phẩm - Tiêu Dùng (Xem thêm mã tại: https://sandbox.vnpayment.vn/apis/docs/loai-hang-hoa)
         $vnp_Amount = $data['vnp_Amount'] * 100;
-        $vnp_Locale = 'vn'; //Ngôn ngữ tiếng việt
+        $vnp_Locale = "vn"; //Ngôn ngữ tiếng việt
 //        $vnp_BankCode = $_POST['bank_code'];
 //        $vnp_BankCode = 'NCB';
         $vnp_IpAddr = $_SERVER['REMOTE_ADDR'];
 
         $inputData = array(
             "vnp_Version" => "2.1.0",
+            "vnp_Command" => "pay",
             "vnp_TmnCode" => self::$vnp_TmnCode,
             "vnp_Amount" => $vnp_Amount,
-            "vnp_Command" => "pay",
+            "vnp_BankCode" => 'NCB',
             "vnp_CreateDate" => date('YmdHis'),
             "vnp_CurrCode" => "VND", //Đơn vị tiền tệ (Phiên bản đang dùng chỉ hỗ trợ VND)
             "vnp_IpAddr" => $vnp_IpAddr,
@@ -62,14 +63,31 @@ class VNPay
             "vnp_OrderInfo" => $vnp_OrderInfo,
             "vnp_OrderType" => $vnp_OrderType,
             "vnp_ReturnUrl" => env('APP_URL') . self::$vnp_Returnurl,
-            "vnp_TxnRef" => $vnp_TxnRef,
+            // "vnp_TxnRef" => $vnp_TxnRef,
+            "vnp_TxnRef" => rand(0,999),
+            
             //"vnp_ExpireDate" => date('YmdHis',strtotime('+30 minutes',strtotime(date('YmdHis')))),
+            /////
+            // "vnp_Bill_Mobile"=>$vnp_Bill_Mobile,
+            // "vnp_Bill_Email"=>$vnp_Bill_Email,
+            // "vnp_Bill_FirstName"=>$vnp_Bill_FirstName,
+            // "vnp_Bill_LastName"=>$vnp_Bill_LastName,
+            // "vnp_Bill_Address"=>$vnp_Bill_Address,
+            // "vnp_Bill_City"=>$vnp_Bill_City,
+            // "vnp_Bill_Country"=>$vnp_Bill_Country,
+            // "vnp_Inv_Phone"=>$vnp_Inv_Phone,
+            // "vnp_Inv_Email"=>$vnp_Inv_Email,
+            // "vnp_Inv_Customer"=>$vnp_Inv_Customer,
+            // "vnp_Inv_Address"=>$vnp_Inv_Address,
+            // "vnp_Inv_Company"=>$vnp_Inv_Company,
+            // "vnp_Inv_Taxcode"=>$vnp_Inv_Taxcode,
+            // "vnp_Inv_Type"=>$vnp_Inv_Type,
         );
-
+        //dd($inputData);
         //thêm 'vnp_BankCode'
-        if (isset($vnp_BankCode) && $vnp_BankCode != "") {
-            $inputData['vnp_BankCode'] = $vnp_BankCode;
-        }
+        
+        
+        
         ksort($inputData);
         $query = "";
         $i = 0;
@@ -87,17 +105,28 @@ class VNPay
         //thêm 'vnp_SecureHashType' & 'vnp_SecureHash'
         $vnp_Url = self::$vnp_Url . "?" . $query;
         if (isset(self::$vnp_HashSecret)) {
-            $vnpSecureHash = hash('sha256', self::$vnp_HashSecret . $hashdata);
-            $vnp_Url .= 'vnp_SecureHashType=SHA256&vnp_SecureHash=' . $vnpSecureHash;
+            // $vnpSecureHash = hash_hmac('sha512',$hashdata, self::$vnp_HashSecret);
+            // //$vnp_Url .= 'vnp_SecureHashType=SHA256&vnp_SecureHash=' . $vnpSecureHash;
+            // $vnp_Url .= 'vnp_SecureHash=' . $vnpSecureHash;
+
+            $vnpSecureHash = hash_hmac('sha512', $hashdata, self::$vnp_HashSecret );
+            $vnp_Url .= 'vnp_SecureHash=' . $vnpSecureHash;
+
+        
         }
+
+       
 
         $returnData = array('code' => '00'
         , 'message' => 'success'
         , 'data' => $vnp_Url);
 
-        //echo json_encode($returnData);
-
+        // //echo json_encode($returnData);
+        // //dd($inputData);
         return $returnData['data']; //chỉ lấy ra $vnp_Url thôi.
+       
+        
+        
     }
 }
 

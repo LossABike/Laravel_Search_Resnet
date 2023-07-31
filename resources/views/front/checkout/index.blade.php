@@ -86,6 +86,13 @@
                                             <span class="checkmark"></span>
                                         </label>
                                     </div>
+                                    <div class="pc-item">
+                                        <label for="pc-paypal">
+                                            Online Payment
+                                            <input type="radio"  name="payment_type" value ="online_payment" id="pc-paypal">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                    </div>
                                     
                                 </div>
                                 <div class="order-btn">
