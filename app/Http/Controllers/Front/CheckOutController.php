@@ -29,10 +29,16 @@ class CheckOutController extends Controller
     }
 
     public function addOrder(Request $request){
-
+        
         //add item
         $data =$request->all();
-        $data['status']=Constant::order_status_ReceiveOrders;
+        
+        if($request->payment_type == 'online_payment'){
+            $data['status']=Constant::order_status_Paid;
+        }else {
+            $data['status']=Constant::order_status_ReceiveOrders;
+        }
+        
         $order = $this->orderService->create($data);
         //info cart
         $carts = Cart::content();
@@ -46,7 +52,7 @@ class CheckOutController extends Controller
                 'total' => $cart->qty*$cart->price,
             ];
 
-            $this->orderDetailService->create($data);
+            $currentOrder = $this->orderDetailService->create($data);
         }
 
         if($request->payment_type == 'pay_later'){
@@ -63,12 +69,15 @@ class CheckOutController extends Controller
         }
 
         if($request->payment_type == 'online_payment'){
+            
             //step  URL get URL VNPAY -> Redirect to URL
             $data_url = VNPay::vnpay_create_payment([
                 'vnp_TxnRef' => $order->id,
-                'vnp_OrderInfo' => 'Mo ta order', //describe Order
+                'vnp_OrderInfo' => 'thanh toan don hang', //describe Order
                 'vnp_Amount' => Cart::total(0,'','')*23500, //rate usd
             ]);
+
+           
             //Redirect to URL VNPAY
             //dd($data_url);
             return redirect()->to($data_url);

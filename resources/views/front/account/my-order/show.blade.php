@@ -104,7 +104,10 @@
                                     <div class="pc-item">
                                         <label for="pc-paypal">
                                             Online Payment
-                                            <input disabled type="radio"  name="payment_type" value ="online_payment" id="pc-paypal">
+                                            <input disabled type="radio"  name="payment_type" value ="online_payment" id="pc-paypal"
+                                                    {{$order->payment_type=='online_payment' ? 'checked' : ''}}
+                                            >
+
                                             <span class="checkmark"></span>
                                         </label>
                                     </div>
