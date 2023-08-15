@@ -29,6 +29,9 @@ class CreateProductsTable extends Migration
             $table->boolean('featured');
             $table->string('tag')->nullable();
 
+            $table->timestamp('start_sale')->nullable();
+            $table->timestamp('end_sale')->nullable();
+
             $table->timestamps();
         });
     }

@@ -4,7 +4,8 @@ namespace App\Repositories\Product;
 use App\Models\ProductCategory;
 use App\Models\Product;
 use App\Repositories\BaseRepository;
-
+use Illuminate\Support\Carbon;
+use DateTimeZone;
  class ProductRepository extends BaseRepository implements ProductRepositoryInterface
 {
      public function getModel(){
@@ -118,6 +119,16 @@ use App\Repositories\BaseRepository;
 
 
         return $products;
+    }
+
+    public function getSaleProduct(){
+        return $this->model->where('discount','!=',null)->where('qty','>',0)->get();
+    }
+
+    public function getBestSaleProduct(){
+
+        return  $this->model->where('qty','>',0)->where('discount','!=',null)
+        ->where('start_sale','<=',Carbon::now(new DateTimeZone('Asia/Bangkok')))->where('end_sale','>=',Carbon::now(new DateTimeZone('Asia/Bangkok')))->first();
     }
 
 }
