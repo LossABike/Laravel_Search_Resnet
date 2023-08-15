@@ -46,7 +46,7 @@
                                         <input type="checkbox" id="save-pass" name="remember">
                                         <span class="checkmark"></span>
                                     </label>
-                                    <a href="#" class="forget-pass">Forget your Password</a>
+                                    <a href="/account/forgot" class="forget-pass">Forget your Password</a>
                                 </div>
                             </div>
                             <button type="submit" class="site-btn login-btn">Sign In</button>

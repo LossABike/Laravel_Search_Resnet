@@ -39,14 +39,14 @@
                                         <div class="position-relative row form-group">
                                             <label for="name" class="col-md-3 text-md-right col-form-label">Start Sale Time</label>
                                             <div class="col-md-9 col-xl-8">
-                                                <input required name="start_sale" id="start_sale" placeholder="Start Sale" type="datetime-local"
+                                                <input  name="start_sale" id="start_sale" placeholder="Start Sale" type="datetime-local"
                                                     class="form-control" value="{{$product->start_sale ?? ''}}">
                                             </div>
                                         </div>
                                         <div class="position-relative row form-group">
                                             <label for="name" class="col-md-3 text-md-right col-form-label">End Sale Time</label>
                                             <div class="col-md-9 col-xl-8">
-                                                <input required name="end_sale" id="end_sale" placeholder="End Sale"  type="datetime-local"
+                                                <input  name="end_sale" id="end_sale" placeholder="End Sale"  type="datetime-local"
                                                     class="form-control" value="{{$product->end_sale ?? ''}}">
                                             </div>
                                         </div>
@@ -69,13 +69,18 @@
 
                                         <div class="position-relative row form-group mb-1">
                                             <div class="col-md-9 col-xl-8 offset-md-5">
-                                                <a href="#" class="border-0 btn btn-outline-danger mr-1">
+                                                <a href="/admin/sale" class="border-0 btn btn-outline-danger mr-1">
                                                     <span class="btn-icon-wrapper pr-1 opacity-8">
                                                         <i class="fa fa-times fa-w-20"></i>
                                                     </span>
                                                     <span>Cancel</span>
                                                 </a>
-
+                                                <button class="btn-shadow btn-hover-shine btn btn-warning" id="clearTime">
+                                                    <span class="btn-icon-wrapper pr-2 opacity-8">
+                                                        <i class="fa fa-download fa-w-20"></i>
+                                                    </span>
+                                                    <span>Clear Timer</span>
+                                                </button>
                                                 <button type="submit"
                                                     class="btn-shadow btn-hover-shine btn btn-primary">
                                                     <span class="btn-icon-wrapper pr-2 opacity-8">
@@ -115,6 +120,11 @@
             alert("Price Error . Price discount must be smaller than default price!!");
             $("#discount").val("");
         }
+    });
+    $("#clearTime").click(function(event){
+        event.preventDefault();
+        $("#start_sale").val("");
+        $("#end_sale").val("");
     });
  </script>
 

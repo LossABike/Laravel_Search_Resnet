@@ -99,9 +99,9 @@ class SaleController extends Controller
         $end_sale = $request->input('end_sale');
         $discount = $request->input('discount');
         $data = [
-            'start_sale' => $start_sale,
-            'end_sale' => $end_sale,
-            'discount' => $discount,
+            'start_sale' => $start_sale ?? null,
+            'end_sale' => $end_sale ?? null,
+            'discount' => $discount ?? 0,
         ];
         $this->productService->update($data,$id);
         return redirect ("/admin/sale");

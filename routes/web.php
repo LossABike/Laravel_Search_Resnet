@@ -66,6 +66,12 @@ Route::prefix('account')->middleware('checkAfterLogin')->group(function(){
     Route::get('register',[\App\Http\Controllers\Front\AccountController::class,'register']);
     Route::get('checkEmailExist',[\App\Http\Controllers\Front\AccountController::class,'checkEmailExist']);
     Route::post('register',[\App\Http\Controllers\Front\AccountController::class,'postRegister']);
+    Route::get('forgot',[\App\Http\Controllers\Front\AccountController::class,'showForgot']);
+    Route::post('forgot',[\App\Http\Controllers\Front\AccountController::class,'handleForgot']);
+    Route::get('resetpassword',[\App\Http\Controllers\Front\AccountController::class,'showReset']);
+    Route::post('resetpassword',[\App\Http\Controllers\Front\AccountController::class,'handleResetpassword']);
+
+    
 
     //Order
     Route::prefix('my-order')->middleware('checkLogin')->withoutMiddleware('checkAfterLogin')->group(function(){

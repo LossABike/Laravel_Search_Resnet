@@ -10,6 +10,9 @@ use App\Utilities\Constant;
 use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Models\PasswordReset;
+use Illuminate\Support\Carbon;
+use DateTimeZone;
 
 class AccountController extends Controller
 {
@@ -88,6 +91,46 @@ class AccountController extends Controller
         //create User
         $this->userService->create($data);
         return redirect('account/login')->with('notification','Register successfully ! Let login');
+    }
+
+    public function showForgot(){
+        return view('front.account.forgot');
+    }
+    public function showReset(){
+        return view('front.account.resetpassword');
+    }
+
+    public function handleForgot(Request $request){
+        $data = [
+            'email' => $request->input('email'),
+            'token' => $this->randHash(10),
+            'created_at' => Carbon::now(),
+        ];
+        PasswordReset::create($data);
+        return redirect('/account/resetpassword');
+    }
+
+    public function handleResetPassword(Request $request){
+        $token = $request->input('token');
+        $password = $request->input('password');
+        $email = $request->input('email');
+        $currentTime = Carbon::now(new DateTimeZone('Asia/Bangkok'));
+        $current_time_sub_20_minus = $currentTime->subMinutes(20);
+
+        //dd(PasswordReset::where('email',$email)->where('token',$token)->where('created_at','>=',$current_time_sub_20_minus)->exists());
+        if(PasswordReset::where('email',$email)->where('token',$token)->where('created_at','>=',$current_time_sub_20_minus)->exists()){
+            User::where('email',$email)->update(['password' => bcrypt($password)]);
+            PasswordReset::where('token',$token)->delete();
+            return redirect('/');
+        }else return redirect('/account/resetpassword')->with('notification','Reset password fail . information is not correct');
+
+        
+
+        
+    }
+    private function randHash($len=32)
+    {
+	    return substr(md5(openssl_random_pseudo_bytes(20)),-$len);
     }
 
     public function myOrderIndex(){

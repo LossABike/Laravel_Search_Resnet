@@ -121,16 +121,16 @@
     <!-- Women Banner Section End -->
 
     <!-- Deal Of The Week Section Begin-->
-    <input type="hidden" id="timerdate" value="{{$saleProduct['end_sale']}}"">
-    <section class="deal-of-week set-bg spad" data-setbg="front/img/time-bg.jpg">
+    <input type="hidden" id="timerdate" value="{{$saleProduct['end_sale'] ?? null}}"">
+    <section class="deal-of-week set-bg spad" id="dealOfWeek" data-setbg="front/img/time-bg.jpg">
         <div class="container">
             <div class="col-lg-6 text-center">
                 <div class="section-title">
                     <h2>Deal Of The Week</h2>
-                    <p>{{$saleProduct['description']}} </p>
+                    <p>{{$saleProduct['description'] ?? ''}}  </p>
                     <div class="product-price">
-                       ${{ $saleProduct['discount']}}
-                        <span>/ {{$saleProduct['name']}}</span>
+                       ${{ $saleProduct['discount'] ?? ''}}
+                        <span>/ {{$saleProduct['name'] ?? ''}}</span>
                     </div>
                 </div>
                 <div class="countdown-timer" id="countdown">
@@ -152,7 +152,7 @@
                         <p>Secs</p>
                     </div>
                 </div>
-                <a href="/shop/product/{{ $saleProduct['id'] }}" class="primary-btn">Shop Now</a>
+                <a href="/shop/product/{{ $saleProduct['id'] ?? ''}}" class="primary-btn">Shop Now</a>
             </div>
         </div>
     </section>
@@ -306,6 +306,7 @@
         </div>
     </section>
     <!-- Latest Blog Section End -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 <script>
 function myStopFunction() {
     let currentDate = new Date();
@@ -332,6 +333,13 @@ function myStopFunction() {
 }
 
 function loopWithDelay(i) {
+    let nullProduct = $('#timerdate').val();
+    if(nullProduct == null || nullProduct == ''){
+        $('#dealOfWeek').remove();
+        i=5;
+        return;
+    }
+
     if (i < 5) {
         console.log(i);
         setTimeout(() => {
