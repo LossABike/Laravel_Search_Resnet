@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\PasswordReset;
 use Illuminate\Support\Carbon;
 use DateTimeZone;
-
+use Illuminate\Support\Facades\Mail;
 class AccountController extends Controller
 {
 
@@ -107,6 +107,20 @@ class AccountController extends Controller
             'created_at' => Carbon::now(),
         ];
         PasswordReset::create($data);
+
+        $code = $data['token'];
+        $email_to = $data['email'];
+        //send mail
+        try{
+               Mail::send('front.account.email',compact('code'),
+               function ($message) use ($email_to) {
+                    $message->from('ngoduchieuxxx@gmail.com','AzDigital');
+                    $message->to($email_to,$email_to);
+                     $message->subject('Reset Account Password AZDigital');
+                });
+           }catch(Exception $error){
+                return redirect ('/');
+           }
         return redirect('/account/resetpassword');
     }
 
@@ -115,12 +129,12 @@ class AccountController extends Controller
         $password = $request->input('password');
         $email = $request->input('email');
         $currentTime = Carbon::now(new DateTimeZone('Asia/Bangkok'));
-        $current_time_sub_20_minus = $currentTime->subMinutes(20);
+        $current_time_sub_20_minus = $currentTime->subMinutes(20)->format('Y-m-d H:i:s');
 
         //dd(PasswordReset::where('email',$email)->where('token',$token)->where('created_at','>=',$current_time_sub_20_minus)->exists());
         if(PasswordReset::where('email',$email)->where('token',$token)->where('created_at','>=',$current_time_sub_20_minus)->exists()){
             User::where('email',$email)->update(['password' => bcrypt($password)]);
-            PasswordReset::where('token',$token)->delete();
+            PasswordReset::where('email',$email)->delete();
             return redirect('/');
         }else return redirect('/account/resetpassword')->with('notification','Reset password fail . information is not correct');
 
