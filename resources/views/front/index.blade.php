@@ -120,6 +120,7 @@
     </section>
     <!-- Women Banner Section End -->
 
+    @if ($saleProduct != null) {
     <!-- Deal Of The Week Section Begin-->
     <input type="hidden" id="timerdate" value="{{$saleProduct['end_sale'] ?? null}}"">
     <section class="deal-of-week set-bg spad" id="dealOfWeek" data-setbg="front/img/time-bg.jpg">
@@ -157,6 +158,8 @@
         </div>
     </section>
     <!-- Deal Of The Week Section End -->
+    }
+    @endif
 
     <!-- Man Banner Section Begin -->
     <section class="man-banner spad">
@@ -329,7 +332,6 @@ function myStopFunction() {
 
         location.reload();
     }
-     
 }
 
 function loopWithDelay(i) {
@@ -339,7 +341,6 @@ function loopWithDelay(i) {
         i=5;
         return;
     }
-
     if (i < 5) {
         console.log(i);
         setTimeout(() => {
