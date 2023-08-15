@@ -42,6 +42,7 @@
                         <strong style="font-size: 32px;">Reset Password</strong>
                         <br>
                         <h1>CODE : {{$code}} </h1>
+                        <h1>The code is only valid for 20 minutes after receiving the mail</h1>
                     </h3>
                    
                 </div>
