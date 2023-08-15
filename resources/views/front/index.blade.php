@@ -108,37 +108,38 @@
     <!-- Women Banner Section End -->
 
     <!-- Deal Of The Week Section Begin-->
+    <input type="hidden" id="timerdate" value="{{$saleProduct['end_sale']}}"">
     <section class="deal-of-week set-bg spad" data-setbg="front/img/time-bg.jpg">
         <div class="container">
             <div class="col-lg-6 text-center">
                 <div class="section-title">
                     <h2>Deal Of The Week</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed<br /> do ipsum dolor sit amet,
-                        consectetur adipisicing elit </p>
+                    <p>{{$saleProduct['description']}} </p>
                     <div class="product-price">
-                        $35.00
-                        <span>/ HanBag</span>
+                       ${{ $saleProduct['discount']}}
+                        <span>/ {{$saleProduct['name']}}</span>
                     </div>
                 </div>
                 <div class="countdown-timer" id="countdown">
+                    
                     <div class="cd-item">
-                        <span>56</span>
+                        <span></span>
                         <p>Days</p>
                     </div>
                     <div class="cd-item">
-                        <span>12</span>
+                        <span>0</span>
                         <p>Hrs</p>
                     </div>
                     <div class="cd-item">
-                        <span>40</span>
+                        <span>0</span>
                         <p>Mins</p>
                     </div>
                     <div class="cd-item">
-                        <span>52</span>
+                        <span>60</span>
                         <p>Secs</p>
                     </div>
                 </div>
-                <a href="#" class="primary-btn">Shop Now</a>
+                <a href="/shop/product/{{ $saleProduct['id'] }}" class="primary-btn">Shop Now</a>
             </div>
         </div>
     </section>
@@ -292,5 +293,44 @@
         </div>
     </section>
     <!-- Latest Blog Section End -->
+<script>
+function myStopFunction() {
+    let currentDate = new Date();
+    let timezoneOffset = 7 * 60; // GMT+7 in minutes
+    let localDate = new Date(currentDate.getTime() + timezoneOffset * 60000);
+    let formattedDate = localDate.toISOString().slice(0, 19).replace('T', ' ');
 
+    let dateEndSale = $("#timerdate").val();
+    //curentDate
+   
+    if (dateEndSale > formattedDate) {
+        console.log("ok");
+    } else {
+        
+        $.ajax({
+            url: "/stopsale/"+dateEndSale+"/{id}",
+        }).done(function() {
+            console.log("success");
+        });
+
+        location.reload();
+    }
+     
+}
+
+function loopWithDelay(i) {
+    if (i < 5) {
+        console.log(i);
+        setTimeout(() => {
+            myStopFunction();
+            loopWithDelay(0);
+        }, 5000);
+    }
+}
+
+
+loopWithDelay(0);
+
+
+</script>
 @endsection

@@ -64,4 +64,9 @@ class ShopController extends Controller
     
         return view('front.shop.index',compact('products','brands','categories'));
     }
+
+    public function getAllSaleProduct(){
+        $products = $this->productService->getSaleProduct();
+        return $products; 
+    }
 }

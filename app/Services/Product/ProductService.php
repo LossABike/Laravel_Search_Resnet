@@ -46,5 +46,11 @@ class ProductService extends  BaseService implements ProductServiceInterface
     public function getProductOnList($list_id){
         return $this->repository->getProductOnList($list_id);
     }
+    public function getSaleProduct(){
+        return $this->repository->getSaleProduct();
+    }
+    public function getBestSaleProduct(){
+        return $this->repository->getBestSaleProduct();
+    }
 
 }

@@ -21,8 +21,22 @@ class HomeController extends Controller
 
         $featuredProducts = $this->productService->getFeaturedProducts();
         $blogs = $this->blogService->getLastestBlogs();
+        $saleProduct = $this->getBestSaleProduct();
 
-        return view('front.index',compact('featuredProducts','blogs'));
+        return view('front.index',compact('featuredProducts','blogs','saleProduct'));
     }
+
+    public function getBestSaleProduct(){
+        return $this->productService->getBestSaleProduct();
+    }
+
+    public function stopSaleProduct($hash,$id){
+        $timer = $this->productService->find($id)['end_sale'];
+        if($hash == $timer){
+            return $this->productService->update(['discount' => 0],$id);
+        }
+        
+    }
+    
 
 }
