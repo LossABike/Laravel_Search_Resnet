@@ -89,7 +89,7 @@
                 <div class="col-lg-7 col-md-7">
                     <form action="shop">
                         <div class="advanced-search">
-                            <button type="button" class="category-btn">All Categories</button>
+                            <button type="button" class="category-btn">Welcome to AZ</button>
                             <div class="input-group">
                                 <input type="text" name="search" value="{{request('search')}}" placeholder="What do you need?">
                                 <button type="submit"><i class="ti-search"></i></button>
@@ -184,7 +184,7 @@
                     <li class="{{(request()->segment(1) == '') ? 'active' : ''}}"><a href="./">Home</a></li>
                     <li class="{{(request()->segment(1) == 'shop') ? 'active' : ''}}"><a href="./shop">Shop</a></li>
 
-                    <li><a href="#">Collection</a>
+                    <li><a>Collection</a>
                         <ul class="dropdown">
                             <li><a href="shop/category/Men">Men's</a></li>
                             <li><a href="shop/category/Women">Women's</a></li>
@@ -192,8 +192,8 @@
                         </ul>
                     </li>
                     <!-- <li><a href="./blog.html">Blog</a></li> -->
-                    <li><a href="contact">Contact</a></li>
-                    <li><a href="#">Pages</a>
+                    <li class="{{(request()->segment(1) == 'contact') ? 'active' : ''}}"><a href="contact">Contact</a></li>
+                    <li><a>Pages</a>
                         <ul class="dropdown">
                             <li><a href="./account/my-order">My Order</a></li>
                             <!-- <li><a href="./blog-details.html">Blog Details</a></li> -->
