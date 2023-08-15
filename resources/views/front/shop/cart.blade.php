@@ -57,8 +57,8 @@
                         <div class="row">
                             <div class="col-lg-4">
                                 <div class="cart-buttons">
-                                    <a href="#" class="primary-btn continue-shop">Continue shopping</a>
-                                    <a href="#" class="primary-btn up-cart">Update cart</a>
+                                    <a href="shop" class="primary-btn continue-shop">Continue shopping</a>
+                                    <a href="cart" class="primary-btn up-cart">Update cart</a>
                                 </div>
                                 <div class="discount-coupon">
                                     <h6>Discount Codes</h6>

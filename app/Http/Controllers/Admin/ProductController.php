@@ -109,7 +109,7 @@ class ProductController extends Controller
             $dataProductDetail = [
                 'product_id' => $product->id,
                 'color' => $request->color,
-                'tags' => $request->tag,
+                // 'tags' => $request->tag,
                 'size' => $size,
                 'qty' => $qty,
             ];

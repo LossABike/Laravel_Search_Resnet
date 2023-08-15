@@ -62,6 +62,10 @@ Route::prefix('checkout')->middleware('checkLogin')->group(function(){
 Route::prefix('account')->middleware('checkAfterLogin')->group(function(){
     Route::get('login',[\App\Http\Controllers\Front\AccountController::class,'login']);
     Route::post('login',[\App\Http\Controllers\Front\AccountController::class,'checkLogin']);
+    // Route::get('login/recoveryPassword', [\App\Http\Controllers\Front\AccountController::class,'recoveryPassword']);
+    // // Route::post('login/recoveryPassword', [\App\Http\Controllers\Front\AccountController::class,'sendRecoveryEmail']);
+    // Route::get('login/recoveryPasswordSuccessful', [\App\Http\Controllers\Front\AccountController::class,'recoveryPasswordSuccessful']);
+    // Route::get('checkEmailExistForRecovery', [\App\Http\Controllers\Front\AccountController::class,'checkEmailExistForRecovery']);
     Route::get('logout',[\App\Http\Controllers\Front\AccountController::class,'logout'])->withoutMiddleware('checkAfterLogin');
     Route::get('register',[\App\Http\Controllers\Front\AccountController::class,'register']);
     Route::get('checkEmailExist',[\App\Http\Controllers\Front\AccountController::class,'checkEmailExist']);
