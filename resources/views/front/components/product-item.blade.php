@@ -4,14 +4,14 @@
         @if($product->discount !=null)
             <div class="sale">Sale</div>
         @endif
-        <div class="icon">
+        <!-- <div class="icon">
             <i class="icon_heart_alt"></i>
-        </div>
+        </div> -->
         <ul>
 {{--            call Ajax addCart--}}
             <li class="w-icon active"><a href="shop/product/{{$product->id}}"><i class="icon_bag_alt"></i></a></li>
-            <li class="quick-view"><a href="shop/product/{{$product->id}}">+ Quick View</a></li>
-            <li class="w-icon"><a href="#"><i class="fa fa-random"></i></a></li>
+            <li class="quick-view"><a href="shop/product/{{$product->id}}">Quick View</a></li>
+            <!-- <li class="w-icon"><a href="#"><i class="fa fa-random"></i></a></li> -->
         </ul>
     </div>
     <div class="pi-text">

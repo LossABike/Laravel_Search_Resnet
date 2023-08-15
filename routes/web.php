@@ -16,6 +16,9 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/',[\App\Http\Controllers\Front\HomeController::class,'index']);
 
+Route::prefix('/contact')->group(function(){
+    Route::get('',[\App\Http\Controllers\AboutMeController::class, 'index']);
+});
 
 Route::prefix('/shop')->group(function(){
     //search by image

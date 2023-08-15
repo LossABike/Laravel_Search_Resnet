@@ -6,35 +6,48 @@
     <!-- Hero Section Begin -->
     <section class="hero-section">
         <div class="hero-items owl-carousel">
-            <div class="single-hero-items set-bg" data-setbg="front/img/hero-1.jpg">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-5">
-                            <span>Bag,kids</span>
-                            <h1>Black friday</h1>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
-                                incididunt ut labore et dolore</p>
-                            <a href="#" class="primary-btn">Shop Now</a>
-                        </div>
-                    </div>
-                    <div class="off-card">
-                        <h2>Sale <span>50%</span></h2>
-                    </div>
-                </div>
-            </div>
             <div class="single-hero-items set-bg" data-setbg="front/img/hero-2.jpg">
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-5">
-                            <span>Bag,kids</span>
-                            <h1>Black friday</h1>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
-                                incididunt ut labore et dolore</p>
-                            <a href="#" class="primary-btn">Shop Now</a>
+                            <span>Kids' Collection</span>
+                            <h1>New Kids Collections</h1>
+                            <p>Cherish Childhood: Discover Our Delightful Kids Collection!</p>
+                            <a href="shop/category/Kids" class="primary-btn">Shop Now</a>
                         </div>
                     </div>
                     <div class="off-card">
-                        <h2>Sale <span>50%</span></h2>
+                        <h2>Sale <span>40%</span></h2>
+                    </div>
+                </div>
+            </div>
+            <div class="single-hero-items set-bg" data-setbg="front/img/hero-1.jpg">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-5">
+                            <span>Women's Collection</span>
+                            <h1>Black friday</h1>
+                            <p>Embrace Elegance: Explore Our Captivating Women's Collection!</p>
+                            <a href="shop/category/Women" class="primary-btn">Shop Now</a>
+                        </div>
+                    </div>
+                    <div class="off-card">
+                        <h2>Sale <span>40%</span></h2>
+                    </div>
+                </div>
+            </div>
+            <div class="single-hero-items set-bg" data-setbg="front/img/hero-3.jpg">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-5">
+                            <span>Men's Collection</span>
+                            <h1>Black friday</h1>
+                            <p>Refine Your Style: Explore Our Sophisticated Men's Collection!</p>
+                            <a href="shop/category/Men" class="primary-btn">Shop Now</a>
+                        </div>
+                    </div>
+                    <div class="off-card">
+                        <h2>Sale <span>40%</span></h2>
                     </div>
                 </div>
             </div>
@@ -47,10 +60,10 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-lg-4">
-                    <div class="single-banner">
+                    <div class="single-banner" href="shop/category/Men">
                         <img src="front/img/banner-1.jpg" alt="">
                         <div class="inner-text">
-                            <h4>Men’s</h4>
+                        <a href="shop/category/Men"> <h4>Men’s</h4></a>
                         </div>
                     </div>
                 </div>
@@ -58,7 +71,7 @@
                     <div class="single-banner">
                         <img src="front/img/banner-2.jpg" alt="">
                         <div class="inner-text">
-                            <h4>Women’s</h4>
+                            <a href="shop/category/Women"> <h4>Women’s</h4></a>
                         </div>
                     </div>
                 </div>
@@ -66,7 +79,7 @@
                     <div class="single-banner">
                         <img src="front/img/banner-3.jpg" alt="">
                         <div class="inner-text">
-                            <h4>Kid’s</h4>
+                        <a href="shop/category/Kids"> <h4>Kid’s</h4> </a>
                         </div>
                     </div>
                 </div>
@@ -82,7 +95,7 @@
                 <div class="col-lg-3">
                     <div class="product-large set-bg" data-setbg="front/img/products/women-large.jpg">
                         <h2>Women’s</h2>
-                        <a href="#">Discover More</a>
+                        <a href="shop/category/Women">Discover More</a>
                     </div>
                 </div>
                 <div class="col-lg-8 offset-lg-1">
@@ -167,7 +180,7 @@
                 <div class="col-lg-3 offset-lg-1">
                     <div class="product-large set-bg m-large" data-setbg="front/img/products/man-large.jpg">
                         <h2>Men’s</h2>
-                        <a href="#">Discover More</a>
+                        <a href="shop/category/Men">Discover More</a>
                     </div>
                 </div>
             </div>
@@ -180,37 +193,37 @@
         <div class="insta-item set-bg" data-setbg="front/img/insta-1.jpg">
             <div class="inside-text">
                 <i class="ti-instagram"></i>
-                <h5><a href="#">colorlib_Collection</a></h5>
+                <h5><a href="https://www.instagram.com/kendalljenner/">kendalljenner</a></h5>
             </div>
         </div>
         <div class="insta-item set-bg" data-setbg="front/img/insta-2.jpg">
             <div class="inside-text">
                 <i class="ti-instagram"></i>
-                <h5><a href="#">colorlib_Collection</a></h5>
+                <h5><a href="https://www.instagram.com/emrata">emrata</a></h5>
             </div>
         </div>
         <div class="insta-item set-bg" data-setbg="front/img/insta-3.jpg">
             <div class="inside-text">
                 <i class="ti-instagram"></i>
-                <h5><a href="#">colorlib_Collection</a></h5>
+                <h5><a href="https://www.instagram.com/matthew_noszka/">matthew_noszka</a></h5>
             </div>
         </div>
         <div class="insta-item set-bg" data-setbg="front/img/insta-4.jpg">
             <div class="inside-text">
                 <i class="ti-instagram"></i>
-                <h5><a href="#">colorlib_Collection</a></h5>
+                <h5><a href="https://www.instagram.com/davidgandy_Official/">davidgandy</a></h5>
             </div>
         </div>
         <div class="insta-item set-bg" data-setbg="front/img/insta-5.jpg">
             <div class="inside-text">
                 <i class="ti-instagram"></i>
-                <h5><a href="#">colorlib_Collection</a></h5>
+                <h5><a href="https://www.instagram.com/fashion_laerta/">fashion_laerta</a></h5>
             </div>
         </div>
         <div class="insta-item set-bg" data-setbg="front/img/insta-6.jpg">
             <div class="inside-text">
                 <i class="ti-instagram"></i>
-                <h5><a href="#">colorlib_Collection</a></h5>
+                <h5><a href="https://www.instagram.com/coco_pinkprincess/">coco_pinkprincess</a></h5>
             </div>
         </div>
     </div>

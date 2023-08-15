@@ -76,7 +76,7 @@
                     </div>
                     <div class="col-lg-6">
                         <div class="checkout-content">
-                            <a href="#" class="content-btn">
+                            <a class="content-btn">
                                 Status : <b>{{\App\Utilities\Constant::$order_status[$order->status]}}</b>
                             </a>
                         </div>

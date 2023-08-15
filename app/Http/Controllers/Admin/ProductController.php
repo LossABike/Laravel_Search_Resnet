@@ -90,6 +90,16 @@ class ProductController extends Controller
         ];
         //handle productDetails
 
+        // $tags = [
+        //     'Towel' => $request->input('Towel') ?? 0,
+        //     'Shoes' => $request->input('Shoes') ?? 0,
+        //     'Coat' => $request->input('Coat') ?? 0,
+        //     'Dress' => $request->input('Dress') ?? 0,
+        //     'Trousers' => $request->input('Trousers') ?? 0,
+        //     'Backpack' => $request->input('Backpack') ?? 0,
+        //     'Hat' => $request->input('Hat') ?? 0,
+        // ];
+
         //total qty in productDetails
         $countQty = 0;
         foreach($sizes as $size=>$qty){
@@ -97,6 +107,7 @@ class ProductController extends Controller
             $dataProductDetail = [
                 'product_id' => $product->id,
                 'color' => $request->color,
+                'tags' => $request->tag,
                 'size' => $size,
                 'qty' => $qty,
             ];
@@ -105,7 +116,6 @@ class ProductController extends Controller
                 $this->productDetailService->create($dataProductDetail);
                 $countQty += $qty;
             }
-
         }
 
         //handle product qty available
@@ -184,6 +194,7 @@ class ProductController extends Controller
             $dataProductDetail = [
                 'product_id' => $id,
                 'color' => $request->color,
+                'tags' => $request->tag,
                 'size' => $size,
                 'qty' => $qty,
             ];

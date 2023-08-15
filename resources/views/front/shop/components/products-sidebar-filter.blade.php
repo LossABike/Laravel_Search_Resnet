@@ -106,13 +106,37 @@
     <div class="filter-widget">
         <h4 class="fw-title">Tags</h4>
         <div class="fw-tags">
-            <a href="#">Towel</a>
-            <a href="#">Shoes</a>
-            <a href="#">Coat</a>
-            <a href="#">Dresses</a>
-            <a href="#">Trousers</a>
-            <a href="#">Men's hats</a>
-            <a href="#">Backpack</a>
+            <div class="sc-item">
+                <input type="radio" id="tag-clothing" name="tag" value="clothing" onchange="this.form.submit();"
+                    {{request('tag') == 'clothing' ? 'checked' : ''}}>
+                <label for="clothing-tag" {{request('tag') == 'clothing' ? 'active' : ''}}>Clothing</label>
+            </div>
+            <div class="sc-item">
+                <input type="radio" id="tag-towel" name="tag" value="towel" onchange="this.form.submit();"
+                    {{request('tag') == 'towel' ? 'checked' : ''}}>
+                <label for="towel-tag" {{request('tag') == 'towel' ? 'active' : ''}}>Towel</label>
+            </div>
+            <div class="sc-item">
+                <input type="radio" id="tag-shoes" name="tag" value="shoes" onchange="this.form.submit();"
+                    {{request('tag') == 'shoes' ? 'checked' : ''}}>
+                <label for="shoes-tag" {{request('tag') == 'shoes' ? 'active' : ''}}>Shoes</label>
+            </div>
+            <div class="sc-item">
+                <input type="radio" id="tag-coat" name="tag" value="coat" onchange="this.form.submit();"
+                    {{request('tag') == 'coat' ? 'checked' : ''}}>
+                <label for="coat-tag" {{request('tag') == 'coat' ? 'active' : ''}}>Coat</label>
+            </div>
+            <div class="sc-item">
+                <input type="radio" id="tag-dress" name="tag" value="dress" onchange="this.form.submit();"
+                    {{request('tag') == 'dress' ? 'checked' : ''}}>
+                <label for="dress-tag" {{request('tag') == 'dress' ? 'active' : ''}}>Dress</label>
+            </div>
+            <div class="sc-item">
+                <input type="radio" id="tag-trousers" name="tag" value="trousers" onchange="this.form.submit();"
+                    {{request('tag') == 'trousers' ? 'checked' : ''}}>
+                <label for="trousers-tag" {{request('tag') == 'trousers' ? 'active' : ''}}>Trousers</label>
+            </div>
         </div>
     </div>
+    <button type="submit" class="clear-filter-btn"><a href="shop">Clear Filter</a></button>
 </form>

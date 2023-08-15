@@ -1565,6 +1565,11 @@ ol {
 .footer-widget {
 	margin-bottom: 30px;
 }
+.footer-left h5 {
+	color: #ffffff;
+	font-weight: 700;
+	margin-bottom: 26px;
+}
 
 .footer-widget h5 {
 	color: #ffffff;
@@ -1856,6 +1861,22 @@ ol {
 	display: inline-block;
 	text-transform: uppercase;
 }
+
+.clear-filter-btn{
+	font-size: 14px;
+	color: #ffffff;
+	font-weight: 700;
+	background: #e7ab3c;
+	padding: 7px 20px 5px;
+	border-radius: 2px;
+	display: inline-block;
+	text-transform: uppercase;
+}
+
+.clear-filter-btn a{
+	color: #ffffff;
+}
+
 
 .filter-widget .fw-color-choose .cs-item {
 	width: 50%;
