@@ -16,11 +16,17 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/',[\App\Http\Controllers\Front\HomeController::class,'index']);
 
+
+Route::prefix('/contact')->group(function(){
+    Route::get('',[\App\Http\Controllers\AboutMeController::class, 'index']);
+});
+
 Route::get("/bestsaleproduct",[\App\Http\Controllers\Front\HomeController::class,'getBestSaleProduct']);
 
 Route::get('/stopsale/{hash}/{id}',[\App\Http\Controllers\Front\HomeController::class,'stopSaleProduct']);
 
 #Route::get("/saleproduct",[\App\Http\Controllers\Front\ShopController::class,'getAllSaleProduct']);
+
 
 
 Route::prefix('/shop')->group(function(){

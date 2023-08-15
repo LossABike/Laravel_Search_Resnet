@@ -117,6 +117,12 @@ use DateTimeZone;
             return $query->where('color',$color);
         }) : $products;
 
+        //Tag
+        $tag = $request->tag;
+        $products = $tag != null ? $products->whereHas('productDetails',function($query) use ($tag){
+            return $query->where('tag',$tag);
+        }) : $products;
+
 
         return $products;
     }

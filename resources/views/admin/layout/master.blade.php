@@ -47,7 +47,7 @@
                 </button>
             </div>
         </div>
-        <div class="app-header__menu">
+        <!-- <div class="app-header__menu">
                 <span>
                     <button type="button"
                             class="btn-icon btn-icon-only btn btn-primary btn-sm mobile-toggle-header-nav">
@@ -56,18 +56,18 @@
                         </span>
                     </button>
                 </span>
-        </div>
+        </div> -->
         <div class="app-header__content">
             <div class="app-header-left">
-                <div class="search-wrapper">
+                <!-- <div class="search-wrapper">
                     <div class="input-holder">
                         <input type="text" class="search-input" placeholder="Type to search">
                         <button class="search-icon"><span></span></button>
                     </div>
                     <button class="close"></button>
-                </div>
+                </div> -->
                 <ul class="header-megamenu nav">
-                    <li class="nav-item">
+                    <!-- <li class=  "nav-item">
                         <a href="javascript:void(0);" data-placement="bottom" rel="popover-focus" data-offset="300"
                            data-toggle="popover-custom" class="nav-link">
                             <i class="nav-link-icon pe-7s-gift"> </i> Mega Menu
@@ -157,7 +157,7 @@
                                 </div>
                             </div>
                         </div>
-                    </li>
+                    </li> -->
                     <li class="btn-group nav-item">
                         {{-- <a class="nav-link" data-toggle="dropdown" aria-expanded="false">
                             <span class="badge badge-pill badge-danger ml-0 mr-2">4</span> Settings
@@ -196,7 +196,7 @@
                             </ul>
                         </div>
                     </li>
-                    <li class="dropdown nav-item">
+                    <!-- <li class="dropdown nav-item">
                         <a aria-haspopup="true" data-toggle="dropdown" class="nav-link" aria-expanded="false">
                             <i class="nav-link-icon pe-7s-settings"></i> Projects
                             <i class="fa fa-angle-down ml-2 opacity-5"></i>
@@ -237,11 +237,11 @@
                                 <i class="dropdown-icon lnr-file-empty"></i>Frontend Dev
                             </button>
                         </div>
-                    </li>
+                    </li> -->
                 </ul>
             </div>
             <div class="app-header-right">
-                <div class="header-dots">
+                <!-- <div class="header-dots">
                     <div class="dropdown">
                         <button type="button" aria-haspopup="true" aria-expanded="false" data-toggle="dropdown"
                                 class="p-0 mr-2 btn btn-link">
@@ -850,7 +850,7 @@
                             </ul>
                         </div>
                     </div>
-                </div>
+                </div> -->
 
                 <div class="header-btn-lg pr-0">
                     <div class="widget-content p-0">
@@ -892,7 +892,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="scroll-area-xs" style="height: 150px;">
+                                        <!-- <div class="scroll-area-xs" style="height: 150px;">
                                             <div class="scrollbar-container ps">
                                                 <ul class="nav flex-column">
                                                     <li class="nav-item-header nav-item">Activity</li>
@@ -922,11 +922,11 @@
                                                     </li>
                                                 </ul>
                                             </div>
-                                        </div>
+                                        </div> -->
                                         <ul class="nav flex-column">
                                             <li class="nav-item-divider mb-0 nav-item"></li>
                                         </ul>
-                                        <div class="grid-menu grid-menu-2col">
+                                        <!-- <div class="grid-menu grid-menu-2col">
                                             <div class="no-gutters row">
                                                 <div class="col-sm-6">
                                                     <button
@@ -953,7 +953,7 @@
                                                 <button class="btn-wide btn btn-primary btn-sm"> Open Messages
                                                 </button>
                                             </li>
-                                        </ul>
+                                        </ul> -->
                                     </div>
                                 </div>
                             </div>
@@ -961,28 +961,28 @@
                                 <div class="widget-heading"> {{Auth::user()->name?? ''}} </div>
                                 <div class="widget-subheading"> {{Auth::user()->email ?? ''}}</div>
                             </div>
-                            <div class="widget-content-right header-user-info ml-3">
+                            <!-- <div class="widget-content-right header-user-info ml-3">
                                 <button type="button"
                                         class="btn-shadow p-1 btn btn-primary btn-sm show-toastr-example">
                                     <i class="fa text-white fa-calendar pr-1 pl-1"></i>
                                 </button>
-                            </div>
+                            </div> -->
                         </div>
                     </div>
                 </div>
                 <div class="header-btn-lg">
-                    <button type="button" class="hamburger hamburger--elastic open-right-drawer">
+                    <!-- <button type="button" class="hamburger hamburger--elastic open-right-drawer">
                             <span class="hamburger-box">
                                 <span class="hamburger-inner"></span>
                             </span>
-                    </button>
+                    </button> -->
                 </div>
             </div>
         </div>
     </div>
 
     <div class="ui-theme-settings">
-        <button type="button" id="TooltipDemo" class="btn-open-options btn btn-warning">
+        <!-- <button type="button" id="TooltipDemo" class="btn-open-options btn btn-warning">
             <i class="fa fa-cog fa-w-16 fa-spin fa-2x"></i>
         </button>
         <div class="theme-settings__inner">
@@ -1172,7 +1172,7 @@
                                     </div>
                                 </div>
                             </li>-->
-                            <li class="list-group-item">
+                            <!-- <li class="list-group-item">
                                 <h5 class="pb-2">Choose Color Scheme</h5>
                                 <div class="theme-settings-swatches">
                                     <div class="swatch-holder bg-primary switch-sidebar-cs-class"
@@ -1249,7 +1249,7 @@
                                     <div class="swatch-holder bg-happy-green switch-sidebar-cs-class"
                                          data-class="bg-happy-green sidebar-text-light"></div>
                                 </div>
-                            </li>
+                            </li> -->
                             <!--<li class="theme-settings-swatches d-none list-group-item">
                                 <div class="widget-content p-0">
                                     <div class="widget-content-wrapper">
@@ -1332,7 +1332,7 @@
                                     </a>
                                 </div>
                             </li>-->
-                        </ul>
+                        <!-- </ul>
                     </div>
                     <h3 class="themeoptions-heading">
                         <div>Main Content Options</div>
@@ -1341,7 +1341,7 @@
                             Default</button>
                     </h3>
                     <div class="p-3">
-                        <ul class="list-group">
+                        <ul class="list-group"> -->
                             <!--<li class="list-group-item">
                                 <div class="widget-content p-0">
                                     <div class="widget-content-wrapper">
@@ -1380,7 +1380,7 @@
                                     </div>
                                 </div>
                             </li>-->
-                            <li class="list-group-item">
+                            <!-- <li class="list-group-item">
                                 <h5 class="pb-2">Page Section Tabs</h5>
                                 <div class="theme-settings-swatches">
                                     <div role="group" class="mt-2 btn-group">
@@ -1410,8 +1410,8 @@
                         </ul>
                     </div>
                 </div>
-            </div>
-        </div>
+            </div> -->
+        <!-- </div> -->
     </div>
 
     <div class="app-main">
@@ -1502,7 +1502,7 @@
             @yield('body')
 
 
-            <div class="app-wrapper-footer">
+            <!-- <div class="app-wrapper-footer">
                 <div class="app-footer">
                     <div class="app-footer__inner">
                         <div class="app-footer-left">
@@ -2231,7 +2231,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> -->
         </div>
     </div>
 
