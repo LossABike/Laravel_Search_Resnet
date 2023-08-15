@@ -72,11 +72,13 @@ class ProductController extends Controller
             'content' => $request->input('content'),
             'price' => $request->input('price'),
             'qty' => 0,
-            'discount' => $request->input('discount'),
+            'discount' => $request->input('discount') ?? null,
             'weight' => $request->input('weight'),
             'sku' => $request->input('sku'),
-            'featured' => $request->input('featured'),
+            'featured' => $request->input('featured') ?? 0,
             'tag' => $request->input('tag'),
+            'start_sale' => null,
+            'end_sale' => null,
 
         ];
         $product = $this->productService->create($dataProduct);

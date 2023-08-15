@@ -1484,6 +1484,11 @@
                                         <i class="metismenu-icon"></i>Brand
                                     </a>
                                 </li>
+                                <li>
+                                    <a href="./admin/sale" class="{{(request()->segment(2) == 'sale') ? 'mm-active' : ''}}">
+                                        <i class="metismenu-icon"></i>Sale Product
+                                    </a>
+                                </li>
                             </ul>
                         </li>
                     </ul>

@@ -16,9 +16,18 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/',[\App\Http\Controllers\Front\HomeController::class,'index']);
 
+
 Route::prefix('/contact')->group(function(){
     Route::get('',[\App\Http\Controllers\AboutMeController::class, 'index']);
 });
+
+Route::get("/bestsaleproduct",[\App\Http\Controllers\Front\HomeController::class,'getBestSaleProduct']);
+
+Route::get('/stopsale/{hash}/{id}',[\App\Http\Controllers\Front\HomeController::class,'stopSaleProduct']);
+
+#Route::get("/saleproduct",[\App\Http\Controllers\Front\ShopController::class,'getAllSaleProduct']);
+
+
 
 Route::prefix('/shop')->group(function(){
     //search by image
@@ -78,12 +87,15 @@ Route::prefix('admin')->middleware('checkAdminLogin')->group(function() {
     Route::resource('product',\App\Http\Controllers\Admin\ProductController::class);
     Route::resource('product/{product_id}/image',\App\Http\Controllers\Admin\ProductImageController::class);
     Route::resource('order',\App\Http\Controllers\Admin\OrderController::class);
+    Route::resource('sale',\App\Http\Controllers\Admin\SaleController::class);
 
     Route::prefix('login')->withoutMiddleware('checkAdminLogin')->middleware('checkAdminAfterLogin')->group(function(){
         Route::get('',[\App\Http\Controllers\Admin\HomeController::class,'getLogin']);
         Route::post('',[\App\Http\Controllers\Admin\HomeController::class,'postLogin']);
     });
     Route::get('logout',[\App\Http\Controllers\Admin\HomeController::class,'logout']);
+
+
 });
 
 
